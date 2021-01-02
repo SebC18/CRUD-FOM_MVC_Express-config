@@ -1,6 +1,6 @@
 {
     "host" : "localhost",
     "user" : "root",
-    "database" : "groceries",
+    "database" : "frame_of_mind",
     "password" : "yoshi47"
 }

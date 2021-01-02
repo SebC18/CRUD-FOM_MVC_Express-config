@@ -4,13 +4,13 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 
-const groceryRoutes = require('./routes/grocery');
+const glassesRoutes = require('./routes/glasses');
 
 const errorController = require('./controllers/error');
 
 const app = express();
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3003;
 //--------------------------------------
 app.use(bodyParser.json());
 
@@ -21,7 +21,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/groceries', groceryRoutes);
+app.use('/glasses', glassesRoutes);
 
 app.use(errorController.get404);
 app.use(errorController.get500);
