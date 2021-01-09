@@ -10,10 +10,7 @@ router.get('/:id', glassesController.getGlassesId); //get one glasses
 
 router.post('/', glassesController.postGlasses);
 
-
-//router.put('/', glassesController.putGlassesDescription); //MaJ description
-
-router.put('/', glassesController.putGlasses);
+router.put('/:id', glassesController.putGlasses);
 
 router.delete('/:id', glassesController.deleteGlasses);
 module.exports = router;

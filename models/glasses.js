@@ -26,63 +26,30 @@ module.exports = class Glasses {
             // Neat!
           });
           console.log(query); 
-          return query
+          
     }
 
     //---------------------------------------**/*//*//*/*/*/*/*/*/**/** */ */
     static post(newGlasses){
-        //const kaleidos1 = new Glasses(null, 1,  "Kaleidos", "Vortex Kaleido - Abstract", "Vortex lenses are...", 15.95, "Black", 5, 14, 14, "Vortex", "Medium");
         let query = db.query('INSERT INTO glasses SET ?', newGlasses, function (error, results, fields) {
           if (error) throw error;
           // Neat!
         });
         console.log(query); 
-        return query
+        
     }
 
-    static updateDesc(id, description){
-        //var columns  = {id: id, description: description};
-        let mySqlQuery = `UPDATE glasses SET description = ?  WHERE id = ?`;
-        let query = db.query(mySqlQuery, [description, id], (err, res) =>{
+    static update(id, updatedGlasses){
+                                            
+        let mysqlD = "UPDATE glasses SET  ? WHERE id = ?";
+
+         let query =  db.query(mysqlD , [updatedGlasses, id], (err, res) =>{
             if (err) throw err;
 
             res.send('update description successful ! ');
         });
-        console.log('Requete : ',mySqlQuery, 'Description', description);
-        } 
-    
-    static update(id, reqBody){
-        const data = reqBody;
-        
-         let mySqlQ = `UPDATE glasses SET product_type     = ?, collection   = ?, 
-                                          product_name     = ?, description  = ?, 
-                                          price            = ?, colour_frame = ?, 
-                                          height           = ?, width        = ?, 
-                                          length_of_temple = ?, lens_type    = ?, 
-                                          intensity        = ?  WHERE id     = ?`
-        let testupdateQuery = "UPDATE `glasses` SET ? WHERE `id` = ?";
-        //let mysqlD = "UPDATE `glasses` SET `product_type` = ?,  `collection` = ?,`product_name` = ?,`description` = ?,`price` = ?,`colour_lens` = ?,`colour_frame` = ?,`height` = ?,`width` = ?,`length_of_temple` = ?, `uv_protection` = ?,`lens_type` = ?,`intensity` = ? WHERE `id` = ?";
-        let glassesColumns =            [
-                                         data.product_type,     data.collection, 
-                                         data.product_name,     data.description, 
-                                         data.price,            data.colour_frame, 
-                                         data.height,           data.width, 
-                                         data.length_of_temple, data.lens_type, 
-                                         data.intensity
-                                        ];
-                                
-
-         const obj = JSON.parse(reqBody); 
-         Glasses.description = reqBody.description ; 
-         console.log('obj: ', obj);
-
-         let query =  db.query(testupdateQuery , [reqBody, id], (err, res) =>{
-            if (err) throw err;
-
-            res.send('update description successful ! ');
-        })                             
-
-
+        console.log('Updated Glasses ID :', id, 'Updated Glasses body :',updatedGlasses);
+                   
     }
 
     static delete(id){
@@ -99,7 +66,7 @@ module.exports = class Glasses {
           // Neat!
         });
         console.log(query); // INSERT INTO posts SET `id` = 1, `title` = 'Hello MySQL'
-        return query
+        
      
       
     }

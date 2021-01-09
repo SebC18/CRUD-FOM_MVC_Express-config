@@ -74,7 +74,6 @@ exports.putGlasses = async (req, res, next) => { //A trouver :
     const {id} = req.params;
 
     let updatedGlasses = {
-        product_type: rb.product_type, 
         collection: rb.collection, 
         product_name : rb.product_name, 
         description : rb.description, 
@@ -89,7 +88,7 @@ exports.putGlasses = async (req, res, next) => { //A trouver :
         intensity: rb.intensity 
     }
     try {
-        const putResponse = await Glasses.update(id, req.body);  
+        const putResponse = await Glasses.update(id, updatedGlasses);  
         res.status(200).json(putResponse);
     } catch (err) {
         if (!err.statusCode){
