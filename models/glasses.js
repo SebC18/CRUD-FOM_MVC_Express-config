@@ -31,11 +31,11 @@ module.exports = class Glasses {
 
     //---------------------------------------**/*//*//*/*/*/*/*/*/**/** */ */
     static post(newGlasses){
-        let query = db.query('INSERT INTO glasses SET ?', newGlasses, function (error, results, fields) {
+        return db.query('INSERT INTO glasses SET ?', newGlasses, function (error, results, fields) {
           if (error) throw error;
           // Neat!
         });
-        console.log(query); 
+        
         
     }
 
@@ -43,12 +43,12 @@ module.exports = class Glasses {
                                             
         let mysqlD = "UPDATE glasses SET  ? WHERE id = ?";
 
-         let query =  db.query(mysqlD , [updatedGlasses, id], (err, res) =>{
-            if (err) throw err;
+         return  db.query(mysqlD , [updatedGlasses, id], (err, res) =>{
+            if (error) throw error;
 
             res.send('update description successful ! ');
         });
-        console.log('Updated Glasses ID :', id, 'Updated Glasses body :',updatedGlasses);
+       // console.log('Updated Glasses ID :', id, 'Updated Glasses body :',updatedGlasses);
                    
     }
 

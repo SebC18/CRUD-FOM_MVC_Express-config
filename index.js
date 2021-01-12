@@ -21,7 +21,8 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/glasses', glassesRoutes);
+// app.use('/glasses', glassesRoutes); OLD
+app.use('/', glassesRoutes);
 
 app.use(errorController.get404);
 app.use(errorController.get500);
