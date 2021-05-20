@@ -1,7 +1,7 @@
-const db = require('../util/database');
+const db = require('../util/database'); 
 
 module.exports = class Glasses {
-    constructor(id, p_t, col, p_n, desc, price, c_f, h, w, l_o_t, l_t, intens){
+    constructor(id, p_t, col, p_n, desc, price, c_f, h, w, l_o_t, l_t, intens, /*champsImg*/ i_n, i_url){
         this.id = id;
         this.product_type = p_t;
         this.collection = col;
@@ -14,6 +14,10 @@ module.exports = class Glasses {
         this.length_of_temple = l_o_t;
         this.lens_type = l_t;
         this.intensity = intens;
+
+        /* -Images -*/
+        this.img_name = i_n;
+        this.img_url = i_url;
     }
 
     static fetchAll(){
@@ -35,9 +39,8 @@ module.exports = class Glasses {
           if (error) throw error;
           // Neat!
         });
-        
-        
     }
+    
 
     static update(id, updatedGlasses){
                                             
