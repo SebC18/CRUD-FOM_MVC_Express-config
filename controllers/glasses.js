@@ -19,7 +19,7 @@ exports.getGlasses = async (req, res, next) => {
 exports.getGlassesId = async (req, res, next) => {
     try {
         const [selectedGlasses] = await Glasses.fetchOne(req.params.id);
-        res.status(200).json(selectedGlasses);
+        res.status(202).json(selectedGlasses, id);
     } catch (err) {
         if (!err.statusCode){
             err.statusCode = 500;

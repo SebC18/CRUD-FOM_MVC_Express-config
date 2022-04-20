@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', glassesController.getGlasses); //get all the glasses
 
-router.get('/:id', glassesController.getGlassesId); //get one glasses
+router.get('/glasses:id', glassesController.getGlassesId); //get one glasses
 
 router.post('/', glassesController.postGlasses);
 

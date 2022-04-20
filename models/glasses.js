@@ -25,7 +25,7 @@ module.exports = class Glasses {
     }
 
     static fetchOne(id){
-        let query = db.query('SELECT * FROM glasses WHERE id = ?', id , function (error, results, fields) {
+        return db.execute('SELECT * FROM glasses WHERE id = ?', [id] , function (error, results, fields) {
             if (error) throw error;
             // Neat!
           });

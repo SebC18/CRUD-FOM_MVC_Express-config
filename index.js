@@ -23,7 +23,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/', glassesRoutes);
+app.use('/glasses', glassesRoutes);
 
 app.use(errorController.get404);
 app.use(errorController.get500);
